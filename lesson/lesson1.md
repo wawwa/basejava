@@ -43,7 +43,18 @@
    - [Понимаем основы Java garbage collection](http://ggenikus.github.io/blog/2014/05/04/gc/)
 
 ## ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 4. [Системы управления версиями. Git](https://drive.google.com/file/d/0B9Ye2auQ_NsFSUNrdVc0bDZuX2s)
--  **<a href="https://github.com/JavaOPs/topjava/wiki/Git">Wiki по ведению проекта в Git</a>**
+
+### Настройка проекта
+- Создать на GitHub репозиторий `basejava`
+- git занести в переменная окружения PATH, перезапустить cmd
+- Создайте локальную копию проекта: `git clone https://github.com/JavaOps/basejava.git`
+- Перейти в каталог проекта: `cd basejava`
+- Настроить git в локальном проекте на свой проект в GitHub:
+  - `git remote -v`
+  - `git remote set-url origin https://github.com/[твой_GITHUB_аккаунт]/[твой_репозиторий].git` - настройка pull
+  - `git remote set-url --push origin https://github.com/[твой_GITHUB_аккаунт]/[твой_репозиторий].git` - настройка push
+  - `git push -u origin master`
+
 -  <a href="http://ru.wikipedia.org/wiki/Система_управления_версиями">Система управления версиями</a>. <a href="http://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%D0%BC%D0%B8#.D0.A0.D0.B0.D1.81.D0.BF.D1.80.D0.B5.D0.B4.D0.B5.D0.BB.D1.91.D0.BD.D0.BD.D1.8B.D0.B5_.D1.81.D0.B8.D1.81.D1.82.D0.B5.D0.BC.D1.8B_.D1.83.D0.BF.D1.80.D0.B0.D0.B2.D0.BB.D0.B5.D0.BD.D0.B8.D1.8F_.D0.B2.D0.B5.D1.80.D1.81.D0.B8.D1.8F.D0.BC.D0.B8">VCS/DVSC</a>.
 
 ![image](https://cloud.githubusercontent.com/assets/18701152/15219746/9295a2fe-186d-11e6-876b-c61cc9be71e4.png)
@@ -59,17 +70,6 @@
     -  [Основы Git за 20 минут](https://www.youtube.com/watch?v=TMeZGvtQnT8)
 - [Популярность разный VSC](http://www.netinstructions.com/the-case-for-git/)
 - <a href="https://git-scm.com/book/ru/v2">Книга по Git</a>
-
-## Настройка проекта
-- Создать на GitHub репозиторий `basejava`
-- git занести в переменная окружения PATH, перезапустить cmd
-- Создайте локальную копию проекта: `git clone https://github.com/JavaOps/basejava.git`
-- Перейти в каталог проекта: `cd basejava`
-- Настроить git в локальном проекте на свой проект в GitHub:
-  - `git remote -v`
-  - `git remote set-url origin https://github.com/[твой_GITHUB_аккаунт]/[твой_репозиторий].git` - настройка pull
-  - `git remote set-url --push origin https://github.com/[твой_GITHUB_аккаунт]/[твой_репозиторий].git` - настройка push
-  - `git push -u origin master`
 
 ## Домашнее задание HW1
 - Создайте в IntelliJ IDEA новый проект, выбрав каталог `basejava`, в котором находится ваш репозиторий:
