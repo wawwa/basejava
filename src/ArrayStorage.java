@@ -21,7 +21,12 @@ public class ArrayStorage {
 
 
     String get(String uuid) {
-        return uuid;
+        for (int i = 0; i < storage.length; i++) {
+            if (uuid == storage[i].toString()) {
+                return uuid;
+            }
+        }
+        return null;
     }
 
 
@@ -39,7 +44,7 @@ public class ArrayStorage {
      */
     Resume[] getAll() {
         for (int i = 0; i < storage.length; i++) {
-          if (storage[i].toString() != null) {
+          if (null != storage[i].toString()) {
               System.out.println(storage[i]);
           }
         }
