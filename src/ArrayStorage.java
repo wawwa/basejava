@@ -12,10 +12,11 @@ public class ArrayStorage {
 
     void save(Resume r) {
         for (int i = 0; i < storage.length; i++) {
-          if (storage[i]==null)
-              storage[i]=r;
-          break;
+          if (storage[i]==null) {
+              storage[i] = r;break;
+          }
             }
+
         }
 
 
@@ -26,7 +27,11 @@ public class ArrayStorage {
 
 
     void delete(String uuid) {
-        remove ;
+        for (int i = 0; i < storage.length; i++) {
+            if (storage[i].toString()==uuid) {
+                storage[i] = null;break;
+            }
+        }
     }
 
     /**
@@ -34,7 +39,9 @@ public class ArrayStorage {
      */
     Resume[] getAll() {
         for (int i = 0; i < storage.length; i++) {
-          if (storage[i] != null) return new Resume[]{storage[i]};
+          if (storage[i].toString() != null) {
+              System.out.println(storage[i]);
+          }
         }
 
 
