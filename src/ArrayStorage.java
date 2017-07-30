@@ -62,9 +62,7 @@ int k=0;int j=0;
             }
         }
         Resume[] buffer = new Resume[j];
-        for (int i = 0; i < buffer.length; i++) {
-            buffer[i] = null;
-        }
+
 
         for (int i = 0; i < storage.length; i++) {
             if (storage[i] != null) {
