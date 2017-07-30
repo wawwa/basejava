@@ -59,13 +59,16 @@ public class ArrayStorage {
         }
         Resume[] buffer = new Resume[j];
         for (int i = 0; i < buffer.length; i++) {
-            if (storage[i] != null) {
-                buffer[i] = storage[i];
-            }
+            for (int k = 0; k <storage.length ; k++) {
 
+
+            if (storage[k] != null) {
+                buffer[i] = storage[k];
+            }
+            }
         }
 
-  
+
         return buffer;
     }
 
