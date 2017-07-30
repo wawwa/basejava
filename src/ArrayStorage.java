@@ -15,7 +15,7 @@ public class ArrayStorage {
         for (int i = 0; i < storage.length; i++) {
             if (storage[i] == null) {
                 storage[i] = r;
-                n+=1;
+                n++;
                 break;
             }
         }
@@ -41,7 +41,7 @@ public class ArrayStorage {
             if (storage[i] != null) {
                 if (uuid == storage[i].toString()) {
                     storage[i] = null;
-                    n-=1;
+                    n--;
                     break;
                 }
             }
@@ -58,7 +58,7 @@ int k=0;int j=0;
 
         for (int i = 0; i < storage.length; i++) {
             if (storage[i] != null) {
-                j += 1;
+                j ++;
             }
         }
         Resume[] buffer = new Resume[j];
@@ -67,7 +67,7 @@ int k=0;int j=0;
         for (int i = 0; i < storage.length; i++) {
             if (storage[i] != null) {
                 buffer[k] = storage[i];
-                k+=1;
+                k++;
 
             }
         }
