@@ -2,8 +2,8 @@
  * Array based storage for Resumes
  */
 public class ArrayStorage {
+    int j = 0;
     Resume[] storage = new Resume[10000];
-
     void clear() {
         for (int i = 0; i < storage.length; i++) {
             storage[i] = null;
@@ -49,7 +49,8 @@ public class ArrayStorage {
      * @return array, contains only Resumes in storage (without null)
      */
     Resume[] getAll() {
-        int j = 0;
+
+
 
 
         for (int i = 0; i < storage.length; i++) {
@@ -58,15 +59,15 @@ public class ArrayStorage {
             }
         }
         Resume[] buffer = new Resume[j];
-        for (int i = 0; i < buffer.length; i++) {
-            for (int k = 0; k <storage.length ; k++) {
+        int k=0;
+        for (int i = 0; i < storage.length; i++) {
+            if (storage[i] != null) {
+                buffer[k] = storage[i];
+                k+=1;
 
-
-            if (storage[k] != null) {
-                buffer[i] = storage[k];
-            }
             }
         }
+
 
 
         return buffer;
