@@ -8,6 +8,7 @@ public class ArrayStorage {
     void clear() {
         for (int i = 0; i < storage.length; i++) {
             storage[i] = null;
+            n=0;
         }
     }
 
