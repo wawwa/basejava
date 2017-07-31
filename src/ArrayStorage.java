@@ -1,10 +1,12 @@
+import java.util.Arrays;
+
 /**
  * Array based storage for Resumes
  */
 public class ArrayStorage {
     int n = 0;
-
-    Resume[] storage = new Resume[10000];
+    int j=1;
+    Resume[] storage=new Resume[j];
     void clear() {
         for (int i = 0; i < storage.length; i++) {
             storage[i] = null;
@@ -14,14 +16,20 @@ public class ArrayStorage {
     }
 
     void save(Resume r) {
-        for (int i = 0; i < storage.length; i++) {
-            if (storage[i] == null) {
-                storage[i] = r;
+j++;
+        Resume[] storageTrim=new Resume[j];
+
+        System.arraycopy(storage,0,storageTrim,0,j-1);
+
+        for (int i = 0; i < storageTrim.length; i++) {
+            if (storageTrim[i] == null) {
+                storageTrim[i] = r;
                 n++;
                 break;
             }
         }
-
+        Resume[] storage=new Resume[j];
+        System.arraycopy(storageTrim,0,storage,0,j);
     }
 
 
