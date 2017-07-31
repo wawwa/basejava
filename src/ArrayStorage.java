@@ -22,7 +22,7 @@ public class ArrayStorage {
 
     String get(String uuid) {
         for (int i = 0; i < storage.length; i++) {
-            if (uuid == storage[i].toString()) {
+            if (uuid.toString() ==  storage[i].toString()) {
                 return uuid;
             }
         }
