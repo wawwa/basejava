@@ -21,8 +21,6 @@ public class ArrayStorage {
     void save(Resume r) {
         storage2=new Resume[n+1];
         if(n!=0) storage2 = Arrays.copyOf(storage,storage2.length);
-
-
         for (int i = 0; i < storage2.length; i++) {
             if (storage2[i] == null) {
                 storage2[i] = r;
@@ -55,6 +53,14 @@ public class ArrayStorage {
                 if (uuid == storage[i].toString()) {
                     storage[i] = null;
                     n--;
+                    storage2=new Resume[n];
+                    for (int j = 0; j <storage.length ; j++) {
+                        if (storage[j] != null){
+                            storage2[j-1]=storage[j];
+                        }
+                    }
+                    storage=new Resume[n];
+                    storage = Arrays.copyOf(storage2,storage.length);
                     break;
                 }
             }
