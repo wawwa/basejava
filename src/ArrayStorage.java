@@ -5,8 +5,10 @@ import java.util.Arrays;
  */
 public class ArrayStorage {
     int n = 0;
-    int j=1;
-    Resume[] storage=new Resume[j];
+
+    Resume[] storage=new Resume[1];
+    Resume[] storage2=new Resume[1];
+
     void clear() {
         for (int i = 0; i < storage.length; i++) {
             storage[i] = null;
@@ -15,21 +17,22 @@ public class ArrayStorage {
         n=0;
     }
 
+
     void save(Resume r) {
-j++;
-        Resume[] storageTrim=new Resume[j];
+        storage2=new Resume[n+1];
+        if(n!=0) storage2 = Arrays.copyOf(storage,storage2.length);
 
-        System.arraycopy(storage,0,storageTrim,0,j);
 
-        for (int i = 0; i < storageTrim.length; i++) {
-            if (storageTrim[i] == null) {
-                storageTrim[i] = r;
+        for (int i = 0; i < storage2.length; i++) {
+            if (storage2[i] == null) {
+                storage2[i] = r;
                 n++;
                 break;
             }
         }
-        Resume[] storage=new Resume[j];
-        System.arraycopy(storageTrim,0,storage,0,j);
+        storage=new Resume[n];
+        storage = Arrays.copyOf(storage2,storage.length);
+
     }
 
 
