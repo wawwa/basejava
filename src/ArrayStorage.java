@@ -48,6 +48,7 @@ public class ArrayStorage {
 
 
     void delete(String uuid) {
+        int k=0;
         for (int i = 0; i < storage.length; i++) {
             if (storage[i] != null) {
                 if (uuid == storage[i].toString()) {
@@ -56,7 +57,8 @@ public class ArrayStorage {
                     storage2=new Resume[n];
                     for (int j = 0; j <storage.length ; j++) {
                         if (storage[j] != null){
-                            storage2[j-1]=storage[j];
+                            storage2[k]=storage[j];
+                            k++;
                         }
                     }
                     storage=new Resume[n];
