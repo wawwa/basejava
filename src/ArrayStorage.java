@@ -19,7 +19,7 @@ public class ArrayStorage {
 j++;
         Resume[] storageTrim=new Resume[j];
 
-        System.arraycopy(storage,0,storageTrim,0,j-1);
+        System.arraycopy(storage,0,storageTrim,0,j);
 
         for (int i = 0; i < storageTrim.length; i++) {
             if (storageTrim[i] == null) {
