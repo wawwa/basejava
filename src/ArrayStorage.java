@@ -36,7 +36,7 @@ public class ArrayStorage {
 //todo check if rezume not prezent
         boolean isExist = false;
         for (int i = 0; i < size; i++) {
-            if (r == storage[i]) {
+            if (r.toString() == storage[i].toString()) {
                 isExist = true;
                 printExists();
                 break;
