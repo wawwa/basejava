@@ -19,19 +19,33 @@ public class ArrayStorage {
 
 void update(Resume r){
     //todo check if rezume prezent
-    System.out.println("ERROR: update");
+    for (int i = 0; i < size; i++) {
+       if (storage[i]==r) {
+           System.out.println("ERROR: rezume already exists");
+           break;
+       }
+    }
+
 }
 
     void save(Resume r) {
 //todo check if rezume not prezent
-        storage[size]=r;
-        size++;
+        for (int i = 0; i < size; i++) {
+            if (storage[i] == r) {
+                System.out.println("ERROR save: rezume already exists");
+                break;
+            } else {
+                storage[size] = r;
+                size++;
+            }
+        }
     }
 
 
     Resume get(String uuid) {
         for (int i = 0; i < size; i++) {
             if (uuid == storage[i].toString()) {
+                System.out.println("Get - Rezume exists:");
                     return storage[i];
 
             }
