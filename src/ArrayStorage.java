@@ -30,13 +30,23 @@ public class ArrayStorage {
 
     void save(Resume r) {
 //todo check if rezume not prezent
+        boolean flag = false;
+        for (int i = 0; i < size; i++) {
+            if (storage[i] == r) {
+                flag = true;
 
-                storage[size] = r;
-                size++;
+            }
 
 
+        }
+        if (flag) {
+            System.out.println("Rezume already exists");
+        } else {
+            storage[size] = r;
+            size++;
+        }
     }
-
+    
 
     Resume get(String uuid) {
         for (int i = 0; i < size; i++) {
