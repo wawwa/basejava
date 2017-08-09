@@ -17,6 +17,9 @@ public class ArrayStorage {
         size =0;
     }
 
+void update(Resume r){
+        
+}
 
     void save(Resume r) {
 
