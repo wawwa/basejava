@@ -18,11 +18,12 @@ public class ArrayStorage {
     }
 
 void update(Resume r){
-        
+    //todo check if rezume prezent
+    System.out.println("ERROR: update");
 }
 
     void save(Resume r) {
-
+//todo check if rezume not prezent
         storage[size]=r;
         size++;
     }
@@ -41,6 +42,7 @@ void update(Resume r){
 
 
     void delete(String uuid) {
+        //todo check if rezume prezent
         for (int i = 0; i < size; i++) {
             if (storage[i] != null) {
                 if (uuid == storage[i].toString()) {
