@@ -21,37 +21,40 @@ public class ArrayStorage {
         //todo check if rezume prezent
         for (int i = 0; i < size; i++) {
             if (storage[i] == r) {
-                System.out.println("ERROR: rezume already exists");
+                printExists();
                 break;
             }
         }
 
     }
 
+    private void printExists() {
+        System.out.println("Rezume already exists");
+    }
+
     void save(Resume r) {
 //todo check if rezume not prezent
         boolean flag = false;
         for (int i = 0; i < size; i++) {
-            if (storage[i] == r) {
+            if (storage[i].toString().equals(r)) {
                 flag = true;
-
+                printExists();
+                break;
             }
 
 
         }
-        if (flag) {
-            System.out.println("Rezume already exists");
-        } else {
-            storage[size] = r;
+        if (!flag) {storage[size] = r;
             size++;
+
         }
     }
-    
+
 
     Resume get(String uuid) {
         for (int i = 0; i < size; i++) {
             if (uuid == storage[i].toString()) {
-                System.out.println("Get - Rezume exists:");
+                printExists();
                 return storage[i];
 
             }
