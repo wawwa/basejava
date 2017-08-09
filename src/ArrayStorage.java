@@ -4,7 +4,7 @@ import java.util.Arrays;
  * Array based storage for Resumes
  */
 public class ArrayStorage {
-    int n = 0;
+    int size = 0;
 
     Resume[] storage=new Resume[1];
     Resume[] storage2=new Resume[1];
@@ -14,21 +14,21 @@ public class ArrayStorage {
             storage[i] = null;
 
         }
-        n=0;
+        size =0;
     }
 
 
     void save(Resume r) {
-        storage2=new Resume[n+1];
-        if(n!=0) storage2 = Arrays.copyOf(storage,storage2.length);
+        storage2=new Resume[size +1];
+        if(size !=0) storage2 = Arrays.copyOf(storage,storage2.length);
         for (int i = 0; i < storage2.length; i++) {
             if (storage2[i] == null) {
                 storage2[i] = r;
-                n++;
+                size++;
                 break;
             }
         }
-        storage=new Resume[n];
+        storage=new Resume[size];
         storage = Arrays.copyOf(storage2,storage.length);
 
     }
@@ -53,15 +53,15 @@ public class ArrayStorage {
             if (storage[i] != null) {
                 if (uuid == storage[i].toString()) {
                     storage[i] = null;
-                    n--;
-                    storage2=new Resume[n];
+                    size--;
+                    storage2=new Resume[size];
                     for (int j = 0; j <storage.length ; j++) {
                         if (storage[j] != null){
                             storage2[k]=storage[j];
                             k++;
                         }
                     }
-                    storage=new Resume[n];
+                    storage=new Resume[size];
                     storage = Arrays.copyOf(storage2,storage.length);
                     break;
                 }
@@ -79,7 +79,7 @@ int k=0;int j=0;
 
 
 
-        Resume[] buffer = new Resume[n];
+        Resume[] buffer = new Resume[size];
 
 
         for (int i = 0; i < storage.length; i++) {
@@ -97,6 +97,6 @@ int k=0;int j=0;
 
 
     int size() {
-        return n;
+        return size;
     }
 }
