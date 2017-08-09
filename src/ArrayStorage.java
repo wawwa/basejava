@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class ArrayStorage {
     private int size = 0;
 
-    Resume[] storage=new Resume[10000];
+    Resume[] storage = new Resume[10000];
 
 
     void clear() {
@@ -14,19 +14,19 @@ public class ArrayStorage {
             storage[i] = null;
 
         }
-        size =0;
+        size = 0;
     }
 
-void update(Resume r){
-    //todo check if rezume prezent
-    for (int i = 0; i < size; i++) {
-       if (storage[i]==r) {
-           System.out.println("ERROR: rezume already exists");
-           break;
-       }
-    }
+    void update(Resume r) {
+        //todo check if rezume prezent
+        for (int i = 0; i < size; i++) {
+            if (storage[i] == r) {
+                System.out.println("ERROR: rezume already exists");
+                break;
+            }
+        }
 
-}
+    }
 
     void save(Resume r) {
 //todo check if rezume not prezent
@@ -46,7 +46,7 @@ void update(Resume r){
         for (int i = 0; i < size; i++) {
             if (uuid == storage[i].toString()) {
                 System.out.println("Get - Rezume exists:");
-                    return storage[i];
+                return storage[i];
 
             }
 
@@ -67,16 +67,15 @@ void update(Resume r){
             }
         }
     }
+
     /**
      * @return array, contains only Resumes in storage (without null)
      */
     Resume[] getAll() {
-        Resume[] storageOut=new Resume[size];
+        Resume[] storageOut = new Resume[size];
 
 
-
-        storageOut=Arrays.copyOfRange(storage,0,size);
-
+        storageOut = Arrays.copyOfRange(storage, 0, size);
 
 
         return storageOut;
