@@ -20,7 +20,7 @@ public class ArrayStorage {
     void update(Resume r) {
         //todo check if rezume prezent
         for (int i = 0; i < size; i++) {
-            if (r == storage[i]) {
+            if (r.toString().equals(storage[i]) ) {
                 printExists();
                 break;
             }
@@ -36,7 +36,7 @@ public class ArrayStorage {
 //todo check if rezume not prezent
         boolean isExist = false;
         for (int i = 0; i < size; i++) {
-            if (r.toString() == storage[i].toString()) {
+            if (r.toString().equals(storage[i]) ) {
                 isExist = true;
                 printExists();
                 break;
@@ -54,7 +54,7 @@ public class ArrayStorage {
 
     Resume get(String uuid) {
         for (int i = 0; i < size; i++) {
-            if (uuid == storage[i].toString()) {
+            if (uuid.toString().equals(storage[i]) ) {
                 printExists();
                 return storage[i];
 
