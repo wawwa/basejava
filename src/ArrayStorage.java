@@ -1,36 +1,63 @@
+import java.util.Arrays;
+
 /**
  * Array based storage for Resumes
  */
 public class ArrayStorage {
-    int n = 0;
+    private int size = 0;
 
     Resume[] storage = new Resume[10000];
+
+
     void clear() {
         for (int i = 0; i < storage.length; i++) {
             storage[i] = null;
 
         }
-        n=0;
+        size = 0;
     }
 
-    void save(Resume r) {
-        for (int i = 0; i < storage.length; i++) {
-            if (storage[i] == null) {
-                storage[i] = r;
-                n++;
+    void update(Resume r) {
+        //todo check if rezume prezent
+        for (int i = 0; i < size; i++) {
+            if (r.toString().equals(storage[i]) ) {
+                printExists();
                 break;
             }
         }
 
     }
 
+    private void printExists() {
+        System.out.println("Rezume already exists");
+    }
 
-    String get(String uuid) {
-        for (int i = 0; i < storage.length; i++) {
-            if (storage[i] != null) {
-                if (uuid == storage[i].toString()) {
-                    return uuid;
-                }
+    void save(Resume r) {
+//todo check if rezume not prezent
+        boolean isExist = false;
+        for (int i = 0; i < size; i++) {
+            if (r.toString().equals(storage[i]) ) {
+                isExist = true;
+                printExists();
+                break;
+            }
+
+
+        }
+        if (!isExist) {
+            storage[size] = r;
+            size++;
+
+        }
+    }
+
+
+    Resume get(String uuid) {
+        for (int i = 0; i < size; i++) {
+            if (uuid.toString().equals(storage[i]) ) {
+                printExists();
+                return storage[i];
+
             }
 
         }
@@ -39,12 +66,13 @@ public class ArrayStorage {
 
 
     void delete(String uuid) {
-        for (int i = 0; i < storage.length; i++) {
+        //todo check if rezume prezent
+        for (int i = 0; i < size; i++) {
             if (storage[i] != null) {
                 if (uuid == storage[i].toString()) {
-                    storage[i] = null;
-                    n--;
-                    break;
+                    storage[i] = storage[size - 1];
+                    storage[size - 1] = null;
+                    size--;
                 }
             }
         }
@@ -54,30 +82,17 @@ public class ArrayStorage {
      * @return array, contains only Resumes in storage (without null)
      */
     Resume[] getAll() {
-
-int k=0;int j=0;
-
+        Resume[] storageOut = new Resume[size];
 
 
-
-        Resume[] buffer = new Resume[n];
-
-
-        for (int i = 0; i < storage.length; i++) {
-            if (storage[i] != null) {
-                buffer[k] = storage[i];
-                k++;
-
-            }
-        }
+        storageOut = Arrays.copyOfRange(storage, 0, size);
 
 
-
-        return buffer;
+        return storageOut;
     }
 
 
     int size() {
-        return n;
+        return size;
     }
 }
