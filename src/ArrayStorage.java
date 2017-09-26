@@ -12,7 +12,6 @@ public class ArrayStorage {
     void clear() {
         for (int i = 0; i < storage.length; i++) {
             storage[i] = null;
-
         }
         size = 0;
     }
@@ -20,7 +19,7 @@ public class ArrayStorage {
     void update(Resume r) {
         //todo check if rezume prezent
         for (int i = 0; i < size; i++) {
-            if (r.toString().equals(storage[i]) ) {
+            if (r.toString().equals(storage[i])) {
                 printExists();
                 break;
             }
@@ -36,7 +35,7 @@ public class ArrayStorage {
 //todo check if rezume not prezent
         boolean isExist = false;
         for (int i = 0; i < size; i++) {
-            if (r.toString().equals(storage[i]) ) {
+            if (r.toString().equals(storage[i])) {
                 isExist = true;
                 printExists();
                 break;
@@ -54,7 +53,7 @@ public class ArrayStorage {
 
     Resume get(String uuid) {
         for (int i = 0; i < size; i++) {
-            if (uuid.toString().equals(storage[i]) ) {
+            if (uuid.toString().equals(storage[i])) {
                 printExists();
                 return storage[i];
 
@@ -63,7 +62,7 @@ public class ArrayStorage {
         }
         return null;
     }
- 
+
 
     void delete(String uuid) {
         //todo check if rezume prezent
