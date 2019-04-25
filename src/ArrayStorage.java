@@ -74,7 +74,7 @@ public class ArrayStorage {
         isResumePresent(uuid);
         for (int i = 0; i < size; i++) { 
             if (storage[i] != null) {
-                if (uuid == storage[i].toString()) {
+                if (uuid   == storage[i].toString()) {
                     storage[i] = storage[size - 1];
                     storage[size - 1] = null;
                     size--;
