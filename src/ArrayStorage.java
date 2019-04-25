@@ -18,11 +18,11 @@ public class ArrayStorage {
 
     void update(String uuid) {
         //todo check if rezume prezent
-        ifResumePresent(uuid);
+        isResumePresent(uuid);
 
     }
 
-    private void ifResumePresent(String r) {
+    private void isResumePresent(String r) {
         for (int i = 0; i < size; i++) {
             if (r.toString().equals(storage[i])) {
                 printExists();
@@ -37,6 +37,7 @@ public class ArrayStorage {
 
     void save(Resume r) {
 //todo check if rezume not prezent
+        isResumePresent(r.toString());
         boolean isExist = false;
         for (int i = 0; i < size; i++) {
             if (r.toString().equals(storage[i])) {
@@ -44,7 +45,6 @@ public class ArrayStorage {
                 printExists();
                 break;
             }
-
 
         }
         if (!isExist) {
@@ -56,7 +56,7 @@ public class ArrayStorage {
 
 
     Resume get(String uuid) {
-        ifResumePresent(uuid);
+        isResumePresent(uuid);
         for (int i = 0; i < size; i++) {
             if (uuid.toString().equals(storage[i])) {
                 printExists();
@@ -71,8 +71,8 @@ public class ArrayStorage {
 
     void delete(String uuid) {
         //todo check if rezume prezent
-        ifResumePresent(uuid);
-        for (int i = 0; i < size; i++) {
+        isResumePresent(uuid);
+        for (int i = 0; i < size; i++) { 
             if (storage[i] != null) {
                 if (uuid == storage[i].toString()) {
                     storage[i] = storage[size - 1];
