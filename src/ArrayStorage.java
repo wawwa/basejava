@@ -4,10 +4,8 @@ import java.util.Arrays;
  * Array based storage for Resumes
  */
 public class ArrayStorage {
-    private int size = 0;
-
     Resume[] storage = new Resume[10000];
-
+    private int size = 0;
 
     void clear() {
         for (int i = 0; i < storage.length; i++) {
@@ -41,7 +39,7 @@ public class ArrayStorage {
                 printExists();
                 break;
             }
- 
+
 
         }
         if (!isExist) {
@@ -54,7 +52,7 @@ public class ArrayStorage {
 
     Resume get(String uuid) {
         for (int i = 0; i < size; i++) {
-            if (uuid.toString().equals(storage[i]) ) {
+            if (uuid.equals(storage[i]) ) {
                 printExists();
                 return storage[i];
 
@@ -69,7 +67,7 @@ public class ArrayStorage {
         //todo check if rezume prezent
         for (int i = 0; i < size; i++) {
             if (storage[i] != null) {
-                if (uuid == storage[i].toString()) {
+                if (uuid.equals(storage[i])) {
                     storage[i] = storage[size - 1];
                     storage[size - 1] = null;
                     size--;
@@ -77,6 +75,7 @@ public class ArrayStorage {
             }
         }
     }
+
 
     /**
      * @return array, contains only Resumes in storage (without null)
