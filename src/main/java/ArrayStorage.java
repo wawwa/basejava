@@ -4,26 +4,31 @@ import java.util.Arrays;
  * Array based storage for Resumes
  */
 public class ArrayStorage {
-    Resume[] storage = new Resume[10000];
     private int size = 0;
 
-    void update(Resume r) {
-        //todo check if rezume prezent
-        for (int i = 0; i < size; i++) {
-            if (r.toString().equals(storage[i]) ) {
-                printExists();
-                break;
-            }
-        }
+    Resume[] storage = new Resume[10000];
 
-    }
 
     void clear() {
         for (int i = 0; i < storage.length; i++) {
             storage[i] = null;
-
         }
         size = 0;
+    }
+
+    void update(String uuid) {
+        //todo check if rezume prezent
+        isResumePresent(uuid);
+
+    }
+
+    private void isResumePresent(String r) {
+        for (int i = 0; i < size; i++) {
+            if (r.toString().equals(storage[i])) {
+                printExists();
+                break;
+            }
+        }
     }
 
     private void printExists() {
@@ -32,14 +37,14 @@ public class ArrayStorage {
 
     void save(Resume r) {
 //todo check if rezume not prezent
+        isResumePresent(r.toString());
         boolean isExist = false;
         for (int i = 0; i < size; i++) {
-            if (r.toString().equals(storage[i]) ) {
+            if (r.toString().equals(storage[i])) {
                 isExist = true;
                 printExists();
                 break;
             }
-
 
         }
         if (!isExist) {
@@ -51,8 +56,9 @@ public class ArrayStorage {
 
 
     Resume get(String uuid) {
+        isResumePresent(uuid);
         for (int i = 0; i < size; i++) {
-            if (uuid.equals(storage[i]) ) {
+            if (uuid.toString().equals(storage[i])) {
                 printExists();
                 return storage[i];
 
@@ -65,9 +71,10 @@ public class ArrayStorage {
 
     void delete(String uuid) {
         //todo check if rezume prezent
-        for (int i = 0; i < size; i++) {
+        isResumePresent(uuid);
+        for (int i = 0; i < size; i++) { 
             if (storage[i] != null) {
-                if (uuid.equals(storage[i])) {
+                if (uuid   == storage[i].toString()) {
                     storage[i] = storage[size - 1];
                     storage[size - 1] = null;
                     size--;
@@ -75,7 +82,6 @@ public class ArrayStorage {
             }
         }
     }
-
 
     /**
      * @return array, contains only Resumes in storage (without null)
