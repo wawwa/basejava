@@ -24,7 +24,7 @@ public class ArrayStorage {
 
     private void isResumePresent(String r) {
         for (int i = 0; i < size; i++) {
-            if (r.toString().equals(storage[i])) {
+            if (r.equals(storage[i])) {
                 printExists();
                 break;
             }
