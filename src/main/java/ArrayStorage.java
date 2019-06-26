@@ -58,7 +58,7 @@ public class ArrayStorage {
     Resume get(String uuid) {
         isResumePresent(uuid);
         for (int i = 0; i < size; i++) {
-            if (uuid.toString().equals(storage[i])) {
+            if (uuid.equals(storage[i])) {
                 printExists();
                 return storage[i];
 
